@@ -69,20 +69,51 @@ public class DonacionDeSangre {
         //declaracion de variables
         int edad=0;
         int peso=0;
+        boolean desayuno=true;
+        char respuesta='0';
+        int hierro=0;
+        String genero="Masculino";
+        
         System.out.println("Cual es su edad?");
         edad= input.nextInt();
-        System.out.println("Cual es su peso");
+        System.out.println("\nCual es su peso");
         peso= input.nextInt();
         
         if (edad>=18 && edad <=65 && peso >=110){
-           System.out.println("Si puede donar sangre");
-            /*sangre= teclado.nextDouble();
-         */
+  input.nextLine(); //limpiar buffer
+            System.out.println("Ha comido? S o N ");
+            respuesta= input.nextLine ().charAt(0);
+            if (respuesta=='S'|| respuesta=='s'){ 
+            System.out.println("Si puede donar sangre"); 
+            desayuno= true;
+            desayuno= false;
+                /*un if dentro de otro if es una ESTRUCTURA ANIDADA*/
+                /* solo queremos que reconozca si ya comio, entonces solo
+                se marca la S mayuscula o la s minuscula para que acepte cualquiera de las 2 
+                el OR es ==, no se pone la N porque no queremos que la acete como respuesta*/
+  
+            }
+            else{
+                System.out.println("Es necesario que comas");
+            }
+        }else{
+            System.out.println("No puede donar sangre");
+            
+        }
+        
+        System.out.println("Ingrese su nivel de hierro en sangre");
+        hierro= input.nextInt();
+        input.nextLine();
+        
+        System.out.println(" Ingrese su genero");
+        genero= input.nextLine().toUpperCase();
+        
+        if ((hierro >=14 && genero.equals("MASCULINO")) || (hierro >=12 && genero.equals("FEMENINO") )){
+        System.out.println("Si puede donar sangre");
+        
         }else{
             System.out.println("No puede donar sangre");
         }
-        
-        
     }//find e main
     
-}// fin de class
+} //fin de la clase
